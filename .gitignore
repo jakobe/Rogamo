@@ -4,3 +4,13 @@
 node_modules/
 platforms/
 plugins/
+
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# JS dependencies
+Rogamo/www/lib/
