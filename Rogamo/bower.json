@@ -1,7 +1,16 @@
 {
   "name": "HelloIonic",
-  "private": "true",
+  "private": true,
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.1.0"
+  },
+  "dependencies": {
+    "adapter.js": "*",
+    "bootstrap": "~3.3.0",
+    "demo-console": "master",
+    "ekko-lightbox": "~3.3.0",
+    "kurento-client": "master",
+    "kurento-utils": "master"
   }
+
 }
