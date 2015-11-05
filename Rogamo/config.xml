@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.cleanionic194535" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>RogamoIonic</name>
+<widget id="com.ionicframework.rogamo194535" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Rogamo</name>
   <description>
         A Rogamo Ionic Framework and Cordova project.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
+  <author email="dev@basher.dk" href="http://basher.dk/">
       Rogamo iOS Team
     </author>
   <content src="index.html" />
@@ -16,6 +16,7 @@
   <preference name="BackupWebStorage" value="none" />
   <preference name="SplashScreen" value="screen" />
   <preference name="SplashScreenDelay" value="3000" />
+  <preference name="Orientation" value="landscape" />
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true" />
   </feature>
@@ -50,5 +51,4 @@
     <splash src="resources/ios/splash/Default@2x~iphone.png" height="960" width="640" />
     <splash src="resources/ios/splash/Default~iphone.png" height="480" width="320" />
   </platform>
-  <preference name="Orientation" value="landscape" />
 </widget>
