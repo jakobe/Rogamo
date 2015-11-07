@@ -19,16 +19,17 @@ angular.module('starter', ['ionic', 'rogamo.controllers'])
                 templateUrl: 'home.html'
             }
         }
-    })
+    });
 
     $stateProvider.state('ar', {
         url: '/ar',
         views: {
             ar: {
-                templateUrl: 'ar.html'
+                templateUrl: 'ar.html',
+                controller: 'ArCtrl'
             }
         }
-    })
+    });
 
     $stateProvider.state('kurento', {
         url: '/kurento',
@@ -38,16 +39,17 @@ angular.module('starter', ['ionic', 'rogamo.controllers'])
                 controller: 'KurentoCtrl'
             }
         }
-    })
+    });
 
     $stateProvider.state('robot', {
         url: '/robot',
         views: {
             robot: {
-                templateUrl: 'robot.html'
+                templateUrl: 'robot.html',
+                controller: 'RobotCtrl'
             }
         }
-    })
+    });
 
     $stateProvider.state('help', {
         url: '/help',
@@ -56,10 +58,10 @@ angular.module('starter', ['ionic', 'rogamo.controllers'])
                 templateUrl: 'help.html'
             }
         }
-    })
+    });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/home')
+    $urlRouterProvider.otherwise('/robot');
 
 })
 .run(function($ionicPlatform) {
@@ -67,11 +69,11 @@ angular.module('starter', ['ionic', 'rogamo.controllers'])
     console.log("App ready.");
     //alert("App ready");
     //alert("window.device.platform: " + window.device.platform);
-    if (window.device && window.device.platform === 'iOS') {
+    //if (window.device && window.device.platform === 'iOS') {
         if (window.cordova && window.cordova.plugins.iosrtc) {
             cordova.plugins.iosrtc.registerGlobals();
         }
-    }
+    //}
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     //if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -81,4 +83,4 @@ angular.module('starter', ['ionic', 'rogamo.controllers'])
     //  StatusBar.styleDefault();
     //}
   });
-})
+});

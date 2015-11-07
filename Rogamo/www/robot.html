@@ -1,6 +1,52 @@
-﻿<ion-view title="Robot Controls">
+<ion-view title="Robot Controls">
     <ion-content padding="true">
         <h2>Robot Controls</h2>
-        <p>To control the double robotics...</p>
+        <div class="row">
+            <div class="col col-25">
+                <button class="button button-block icon-left ion-chevron-up" id="poleUp">Pole up</button>
+                <button class="button button-block icon-left ion-android-hand" id="poleStop">Pole stop</button>
+                <button class="button button-block icon-left ion-chevron-down" id="poleDown">Pole down</button>
+            </div>
+            <div class="col" style="padding: 0; margin: 0;">
+                <div class="row" style="padding: 0; margin: 0;">
+                    <div class="col col-33 col-offset-33">
+                        <button class="button button-block icon-left ion-chevron-up" id="driveForward">Forward</button>
+                    </div>
+                </div>
+                <div class="row" style="padding: 0; margin: 0;">
+                    <div class="col col-33">
+                        <button class="button button-block icon-left ion-chevron-left" id="turnLeft">Left</button>
+                    </div>
+                    <div class="col col-33">
+                        <button class="button button-block" id="stop">Stop</button>
+                    </div>
+                    <div class="col col-33">
+                        <button class="button button-block icon-right ion-chevron-right" id="turnRight">Right</button>
+                    </div>
+                </div>
+                <div class="row" style="padding: 0; margin: 0;">
+                    <div class="col col-33 col-offset-33">
+                        <button class="button button-block icon-left ion-chevron-down" id="driveBackward">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-25">
+                <button class="button button-block icon-left ion-chevron-up" id="retractKickstands">Retract kickstands</button>
+                <button class="button button-block icon-left ion-chevron-down" id="deployKickstands">Deploy kickstands</button>
+            </div>
+        </div>
+<!--        <div style="float: left; margin-right: 20px;">-->
+<!--            <div style="width: 200px; padding-bottom: 20px;">-->
+<!---->
+<!--            </div>-->
+<!--            <div style="width: 200px;">-->
+<!--                -->
+<!--            </div>-->
+<!--        </div>-->
+        <div style="width: 360px; float: left;">
+            
+        </div>
     </ion-content>
 </ion-view>

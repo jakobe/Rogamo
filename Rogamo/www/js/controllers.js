@@ -5,7 +5,7 @@ angular.module('rogamo.controllers', [])
 
         var args = {
             ws_uri: 'ws://195.225.105.124:8888/kurento',
-            hat_uri: 'http://files.kurento.org/imgs/mario-wings.png',
+            hat_uri: 'https://cdn4.iconfinder.com/data/icons/desktop-halloween/256/Hat.png',
             ice_servers: undefined
         };
 
@@ -174,3 +174,63 @@ angular.module('rogamo.controllers', [])
 
     });
 })
+.controller('RobotCtrl', function ($scope) {
+            function pole(command) {
+                cordova.plugins.doubleRobotics.pole(command);
+            };
+            function kickstand(command) {
+                cordova.plugins.doubleRobotics.kickstand(command);
+            };
+            function drive(command) {
+                cordova.plugins.doubleRobotics.drive(command);
+            };
+            function addBtnHandler(id, func, command) {
+                document.getElementById(id).addEventListener('touchstart', function() { func(command); }, false);
+            };
+            $scope.$on('$ionicView.loaded', function (viewInfo, state) {
+                       addBtnHandler('poleDown', pole, 'poleDown');
+                       addBtnHandler('poleStop', pole, 'poleStop');
+                       addBtnHandler('poleUp', pole, 'poleUp');
+                       
+                       addBtnHandler('deployKickstands', kickstand, 'deployKickstands');
+                       addBtnHandler('retractKickstands', kickstand, 'retractKickstands');
+                       
+                       addBtnHandler('driveBackward', drive, 'driveBackward');
+                       addBtnHandler('driveForward', drive, 'driveForward');
+                       addBtnHandler('turnLeft', drive, 'turnLeft');
+                       addBtnHandler('turnRight', drive, 'turnRight');
+                       
+               });
+            }).controller('ArCtrl', function ($scope) {
+                          $scope.$on('$ionicView.loaded', function (viewInfo, state) {
+                                     var video = null;
+                                     var canvas = null;
+                                     var photo = null;
+                                     var startbutton = null;
+                                     var webRtcStream;
+                                     video = document.getElementById('video');
+
+                                     document.getElementById('startVideo').addEventListener('touchstart', function() {
+                                                                                            //alert('start video...');
+                                                                                            navigator.getUserMedia(
+                                                                                                                   {
+                                                                                                                   video: true,
+                                                                                                                   audio: false
+                                                                                                                   },
+                                                                                                                   function (stream) {
+                                                                                                                   webRtcStream = stream;
+                                                                                                                   video.src = window.URL.createObjectURL(stream);
+                                                                                                                   console.log("video.play()...");
+                                                                                                                   video.play();
+                                                                                                                   },
+                                                                                                                   function (err) {
+                                                                                                                   console.log("An error occured! " + err);
+                                                                                                                   }
+                                                                                                                   );
+                                                                                            }, false);
+                                     document.getElementById('stopVideo').addEventListener('touchstart', function() {
+                                                                                           if (webRtcStream) webRtcStream.stop();
+                                                                                           }, false);
+                                     
+                                     });
+                          });
