@@ -1,1 +1,94 @@
 /* Empty. Add your own CSS if you like */
+    video { 
+        width: 480px;
+        height: 360px;
+    }
+
+.kickstand-controls,
+.nav-controls
+{
+    float: left;
+}
+
+.kickstand-controls,
+.pole-controls,
+.kickstand-controls .button,
+.pole-controls .button
+{
+    width: 200px;
+}
+
+.pole-controls
+{
+    float: right;
+}
+
+.nav-controls
+{
+    /*border: 1px dotted #b2b2b2;*/
+   /*padding: 10px;*/
+    margin-left: 70px;
+}
+ 
+.kickstand-controls .button,
+.nav-controls .button,
+.pole-controls .button
+{
+    margin: 4px 2px;
+}
+
+.nav-controls .button
+{
+    width: 150px;
+}
+
+/*.nav-controls .button.button-block
+{
+    float: left;
+}*/
+
+.nav-controls .button:first-child,
+.nav-controls .button:last-child
+{
+    display: block;
+    margin-left: 160px;
+}
+
+@media screen and (orientation:portrait) {
+
+    .nav-controls
+    {
+        margin-left: 25px;
+    }
+ 
+    .kickstand-controls,
+    .pole-controls,
+    .kickstand-controls .button,
+    .pole-controls .button
+    {
+        width: 190px;
+    }
+
+    .nav-controls .button
+    {
+        width: 100px;
+    }
+
+    .nav-controls .button:first-child,
+    .nav-controls .button:last-child
+    {
+        margin-left: 110px;
+    }
+
+    ion-nav-view[name="kurento"] .row:first-child .col:first-child,
+    ion-nav-view[name="kurentopointer"] .row:first-child .col:first-child { 
+        display: none;
+    }
+
+    ion-nav-view[name="kurento"] #videoOutput,
+    ion-nav-view[name="kurentopointer"] #videoOutput { 
+        width: 480px;
+        height: 640px;
+    }
+
+}
