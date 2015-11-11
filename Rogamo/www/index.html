@@ -1,4 +1,4 @@
-&#xFEFF;<!DOCTYPE html>
+﻿&#xFEFF;<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -14,6 +14,7 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="js/angular-ios9-uiwebview.patch.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -23,22 +24,23 @@
     <script src="js/controllers.js"></script>
 
 
-      <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+      <!--<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">-->
       <link rel="stylesheet" href="lib/demo-console/index.css">
       <link rel="stylesheet" href="lib/ekko-lightbox/dist/ekko-lightbox.min.css">
       <link rel="stylesheet" href="css/kurento.css">
       <script src="lib/adapter.js/adapter.js"></script>
       <script src="lib/jquery/dist/jquery.min.js"></script>
-      <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!--<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>-->
       <script src="lib/demo-console/index.js"></script>
       <script src="lib/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
 
       <script src="js/ios-websocket-hack.js"></script>
       <script src="lib/kurento-client/js/kurento-client.js"></script>
+      <script src="lib/kurento-module-pointerdetector/js/kurento-module-pointerdetector.js"></script>
       <script src="lib/kurento-utils/js/kurento-utils.js"></script>
   </head>
 
-    <body ng-app="starter">
+    <body ng-app="rogamo">
         <ion-nav-bar class="bar-energized"></ion-nav-bar>
         <ion-tabs class="tabs-default tabs-icon-top">
             <ion-tab title="Home" icon="ion-home" ui-sref="home">
@@ -50,6 +52,9 @@
             <ion-tab title="Kurento" icon="ion-aperture" ui-sref="kurento">
                 <ion-nav-view name="kurento"></ion-nav-view>
             </ion-tab>
+            <ion-tab title="Kurento Pointer" icon="ion-aperture" ui-sref="kurentopointer">
+                <ion-nav-view name="kurentopointer"></ion-nav-view>
+            </ion-tab>
             <ion-tab title="Robot Controls" icon="ion-ios-speedometer" ui-sref="robot">
                 <ion-nav-view name="robot"></ion-nav-view>
             </ion-tab>
@@ -58,21 +63,4 @@
             </ion-tab>
         </ion-tabs>
     </body>
-  <!--<body ng-app="starter">
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Rogamo FIWARE app</h1>
-      </ion-header-bar>
-      <ion-content>
-          Hi there... Hi again.
-      </ion-content>
-        <ion-tabs class="tabs-default tabs-icon-top">
-            <ion-tab title="Home" icon="ion-university">
-                Hello tab 1!
-                <button>Select tab 2!</button>
-            </ion-tab>
-            <ion-tab title="Augmented Reality" icon="ion-aperture">Hello tab 2!</ion-tab>
-        </ion-tabs>
-</ion-pane>
-  </body>-->
 </html>

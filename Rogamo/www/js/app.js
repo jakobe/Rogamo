@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'rogamo.controllers'])
+angular.module('rogamo', ['ionic', 'rogamo.controllers', 'ngIOS9UIWebViewPatch'])
 
 .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -27,6 +27,16 @@ angular.module('starter', ['ionic', 'rogamo.controllers'])
             ar: {
                 templateUrl: 'ar.html',
                 controller: 'ArCtrl'
+            }
+        }
+    });
+
+    $stateProvider.state('kurentopointer', {
+        url: '/kurento-pointer',
+        views: {
+            kurentopointer: {
+                templateUrl: 'kurento-pointer.html',
+                controller: 'KurentoPointerCtrl'
             }
         }
     });
@@ -69,11 +79,11 @@ angular.module('starter', ['ionic', 'rogamo.controllers'])
     console.log("App ready.");
     //alert("App ready");
     //alert("window.device.platform: " + window.device.platform);
-    //if (window.device && window.device.platform === 'iOS') {
+    if (window.device && window.device.platform === 'iOS') {
         if (window.cordova && window.cordova.plugins.iosrtc) {
             cordova.plugins.iosrtc.registerGlobals();
         }
-    //}
+    }
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     //if(window.cordova && window.cordova.plugins.Keyboard) {
