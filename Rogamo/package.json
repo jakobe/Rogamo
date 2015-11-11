@@ -21,7 +21,11 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
-    "cordova-plugin-iosrtc"
+    "cordova-plugin-iosrtc",
+    {
+      "locator": "https://github.com/jakobe/cordova-plugin-doublerobotics.git",
+      "id": "cordova-plugin-doublerobotics"
+    }
   ],
   "cordovaPlatforms": [
     "ios"
