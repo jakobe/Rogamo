@@ -1,14 +1,18 @@
 ﻿<ion-view title="Augmented Reality">
-    <ion-content padding="true">
+    <ion-content padding="true" scroll="false">
         <h2>Augmented Reality</h2>
         <p>Here comes the AR exeample...</p>
         <div class="row">
             <div class="col">
-                <button class="button button-small button-balanced icon-left ion-play" id="startVideo">Start video</button>
-                <button class="button button-small button-assertive icon-left ion-stop" id="stopVideo">Stop video</button>
+                <video width="400" height="300" autoplay="false" id="video" style="float: left;"></video>
             </div>
         </div>
-        <video width="400" height="300" autoplay="false" id="video" style="float: left;"></video>
+        <div class="row">
+            <div class="col">
+                <button class="button button-balanced icon-left ion-play" id="startVideo">Start</button>
+                <button class="button button-assertive icon-left ion-stop" id="stopVideo">Stop</button>
+            </div>
+        </div>
         <img id="image" style="display: none;" />
         <canvas id="canvas" style="display: none; width: 400px; height: 300px; float: left; border: 1px solid blue;"></canvas>
         <canvas id="canvasNoScale" style="display: none; width: 400px; height: 300px; border: 1px solid green;"></canvas>
