@@ -76,7 +76,16 @@ angular.module('rogamo.controllers', [])
                 options.connectionConstraints = {
                     offerToReceiveAudio: false,
                     offerToReceiveVideo: true
-                }
+                };
+                 options.mediaConstraints = {
+                     audio : false,
+                     video : {
+                         mandatory : {
+                             width: 120,
+                             framerate : 10
+                         }
+                     }
+                 };
             }
 
             if (args.ice_servers) {
@@ -377,10 +386,10 @@ angular.module('rogamo.controllers', [])
                         });
 
                         var calibrateWidth = 30,
-                            windowWidth = 100,
-                            centerX = 480 / 2,
-                            centerY = 640 / 2,
-                            padding = 70;
+                            windowWidth = 80,
+                            centerX = 270 / 2,
+                            centerY = 360 / 2,
+                            padding = 50;
 
                         var options =
                         {
@@ -545,7 +554,8 @@ angular.module('rogamo.controllers', [])
                             console.log("Connecting ...");
                             client.connect(webRtc, filter, webRtc, function (error) {
                                 if (error) return onError(error);
-
+                                document.getElementById('inputDimensions').innerText = "INPUT VIDEO - w: " + videoInput.videoWidth + ", h: " + videoInput.videoHeight;
+                                setTimeout(function() { document.getElementById('outputDimensions').innerText = "OUTPUT VIDEO - w: " + videoOutput.videoWidth + ", h: " + videoOutput.videoHeight;}, 2000);
                                 console.log("WebRtcEndpoint --> Filter --> WebRtcEndpoint");
                             });
                         });
