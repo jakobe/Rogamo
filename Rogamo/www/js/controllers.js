@@ -77,15 +77,15 @@ angular.module('rogamo.controllers', [])
                     offerToReceiveAudio: false,
                     offerToReceiveVideo: true
                 };
-                 options.mediaConstraints = {
-                     audio : false,
-                     video : {
-                         mandatory : {
-                             width: 120,
-                             framerate : 10
-                         }
-                     }
-                 };
+                options.mediaConstraints = {
+                    audio: false,
+                    video: {
+                        mandatory: {
+                            width: 120,
+                            framerate: 10
+                        }
+                    }
+                };
             }
 
             if (args.ice_servers) {
@@ -170,6 +170,7 @@ angular.module('rogamo.controllers', [])
 
         function showSpinner() {
             for (var i = 0; i < arguments.length; i++) {
+                arguments[i].setAttribute("data-poster-init", arguments[i].getAttribute("poster"));
                 arguments[i].poster = 'img/transparent-1px.png';
                 arguments[i].style.background = "center transparent url('img/spinner.gif') no-repeat";
             }
@@ -178,7 +179,7 @@ angular.module('rogamo.controllers', [])
         function hideSpinner() {
             for (var i = 0; i < arguments.length; i++) {
                 arguments[i].src = '';
-                arguments[i].poster = 'img/webrtc.png';
+                arguments[i].poster = arguments[i].getAttribute("data-poster-init");
                 arguments[i].style.background = '';
             }
         }
@@ -229,7 +230,7 @@ angular.module('rogamo.controllers', [])
     function hideSpinner() {
         for (var i = 0; i < arguments.length; i++) {
             arguments[i].src = '';
-            arguments[i].poster = 'img/webrtc.png';
+            arguments[i].poster = arguments[i].getAttribute("data-poster-init");
             arguments[i].style.background = '';
         }
     }
@@ -425,9 +426,9 @@ angular.module('rogamo.controllers', [])
                             });
 
                             filter.addWindow(options, onError);
-                            
+
                             options = PointerDetectorWindowMediaParam({
-                                id: 'right',
+                                id: 'left',
                                 height: windowWidth,
                                 width: windowWidth,
                                 upperRightX: centerX - windowWidth - (calibrateWidth / 2) - padding,
@@ -435,9 +436,9 @@ angular.module('rogamo.controllers', [])
                             });
 
                             filter.addWindow(options, onError);
-                            
+
                             options = PointerDetectorWindowMediaParam({
-                                id: 'left',
+                                id: 'right',
                                 height: windowWidth,
                                 width: windowWidth,
                                 upperRightX: centerX + (calibrateWidth / 2) + padding,
@@ -555,7 +556,7 @@ angular.module('rogamo.controllers', [])
                             client.connect(webRtc, filter, webRtc, function (error) {
                                 if (error) return onError(error);
                                 document.getElementById('inputDimensions').innerText = "INPUT VIDEO - w: " + videoInput.videoWidth + ", h: " + videoInput.videoHeight;
-                                setTimeout(function() { document.getElementById('outputDimensions').innerText = "OUTPUT VIDEO - w: " + videoOutput.videoWidth + ", h: " + videoOutput.videoHeight;}, 2000);
+                                setTimeout(function () { document.getElementById('outputDimensions').innerText = "OUTPUT VIDEO - w: " + videoOutput.videoWidth + ", h: " + videoOutput.videoHeight; }, 2000);
                                 console.log("WebRtcEndpoint --> Filter --> WebRtcEndpoint");
                             });
                         });
@@ -573,6 +574,7 @@ angular.module('rogamo.controllers', [])
 
         function showSpinner() {
             for (var i = 0; i < arguments.length; i++) {
+                arguments[i].setAttribute("data-poster-init", arguments[i].getAttribute("poster"));
                 arguments[i].poster = 'img/transparent-1px.png';
                 arguments[i].style.background = "center transparent url('img/spinner.gif') no-repeat";
             }
@@ -585,70 +587,68 @@ angular.module('rogamo.controllers', [])
             event.preventDefault();
             $(this).ekkoLightbox();
         });
-
-
-
-
     });
 })
 
 .controller('RobotCtrl', function ($scope) {
-            function pole(command) {
-                cordova.plugins.doubleRobotics.pole(command);
-            };
-            function kickstand(command) {
-                cordova.plugins.doubleRobotics.kickstand(command);
-            };
-            function drive(command) {
-                cordova.plugins.doubleRobotics.drive(command);
-            };
-            function addBtnHandler(id, func, command) {
-                document.getElementById(id).addEventListener('touchstart', function() { func(command); }, false);
-            };
-            $scope.$on('$ionicView.loaded', function (viewInfo, state) {
-                       addBtnHandler('poleDown', pole, 'poleDown');
-                       addBtnHandler('poleStop', pole, 'poleStop');
-                       addBtnHandler('poleUp', pole, 'poleUp');
-                       
-                       addBtnHandler('deployKickstands', kickstand, 'deployKickstands');
-                       addBtnHandler('retractKickstands', kickstand, 'retractKickstands');
-                       
-                       addBtnHandler('driveBackward', drive, 'driveBackward');
-                       addBtnHandler('driveForward', drive, 'driveForward');
-                       addBtnHandler('turnLeft', drive, 'turnLeft');
-                       addBtnHandler('turnRight', drive, 'turnRight');
-                       
-               });
-            }).controller('ArCtrl', function ($scope) {
-                          $scope.$on('$ionicView.loaded', function (viewInfo, state) {
-                                     var video = null;
-                                     var canvas = null;
-                                     var photo = null;
-                                     var startbutton = null;
-                                     var webRtcStream;
-                                     video = document.getElementById('video');
+    function pole(command) {
+        cordova.plugins.doubleRobotics.pole(command);
+    };
+    function kickstand(command) {
+        cordova.plugins.doubleRobotics.kickstand(command);
+    };
+    function drive(command) {
+        cordova.plugins.doubleRobotics.drive(command);
+    };
+    function addBtnHandler(id, func, command) {
+        document.getElementById(id).addEventListener('touchstart', function () { func(command); }, false);
+    };
+    $scope.$on('$ionicView.loaded', function (viewInfo, state) {
+        addBtnHandler('poleDown', pole, 'poleDown');
+        addBtnHandler('poleStop', pole, 'poleStop');
+        addBtnHandler('poleUp', pole, 'poleUp');
 
-                                     document.getElementById('startVideo').addEventListener('touchstart', function() {
-                                                                                            //alert('start video...');
-                                                                                            navigator.getUserMedia(
-                                                                                                                   {
-                                                                                                                   video: true,
-                                                                                                                   audio: false
-                                                                                                                   },
-                                                                                                                   function (stream) {
-                                                                                                                   webRtcStream = stream;
-                                                                                                                   video.src = window.URL.createObjectURL(stream);
-                                                                                                                   console.log("video.play()...");
-                                                                                                                   video.play();
-                                                                                                                   },
-                                                                                                                   function (err) {
-                                                                                                                   console.log("An error occured! " + err);
-                                                                                                                   }
-                                                                                                                   );
-                                                                                            }, false);
-                                     document.getElementById('stopVideo').addEventListener('touchstart', function() {
-                                                                                           if (webRtcStream) webRtcStream.stop();
-                                                                                           }, false);
-                                     
-                                     });
-                          });
+        addBtnHandler('deployKickstands', kickstand, 'deployKickstands');
+        addBtnHandler('retractKickstands', kickstand, 'retractKickstands');
+
+        addBtnHandler('driveBackward', drive, 'driveBackward');
+        addBtnHandler('driveForward', drive, 'driveForward');
+        addBtnHandler('turnLeft', drive, 'turnLeft');
+        addBtnHandler('turnRight', drive, 'turnRight');
+
+    });
+})
+
+.controller('ArCtrl', function ($scope) {
+    $scope.$on('$ionicView.loaded', function (viewInfo, state) {
+        var video = null;
+        var canvas = null;
+        var photo = null;
+        var startbutton = null;
+        var webRtcStream;
+        video = document.getElementById('video');
+
+        document.getElementById('startVideo').addEventListener('touchstart', function () {
+            //alert('start video...');
+            navigator.getUserMedia(
+                {
+                    video: true,
+                    audio: false
+                },
+                function (stream) {
+                    webRtcStream = stream;
+                    video.src = window.URL.createObjectURL(stream);
+                    console.log("video.play()...");
+                    video.play();
+                },
+                function (err) {
+                    console.log("An error occured! " + err);
+                }
+            );
+        }, false);
+        document.getElementById('stopVideo').addEventListener('touchstart', function () {
+            if (webRtcStream) webRtcStream.stop();
+            video.src = '';
+        }, false);
+    });
+});

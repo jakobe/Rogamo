@@ -1,22 +1,19 @@
-﻿<ion-view title="Kurento Media Server">
+﻿<ion-view title="Kurento Magic Mirror">
     <ion-content padding="true" scroll="false">
-        <h2>Kurento</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h3>Local stream</h3>
-                    <video id="videoInput" autoplay width="480" height="360" poster="img/webrtc.png"></video>
-                </div>
-                <div class="col">
-                    <h3>Remote stream</h3>
-                    <video id="videoOutput" autoplay width="480" height="360" poster="img/webrtc.png"></video>
-                </div>
+        <div class="row">
+            <div class="col">
+                <h3>Local stream</h3>
+                <video id="videoInput" autoplay width="480" height="360" poster="img/kurento-mirrored.png"></video>
             </div>
-            <div class="row">
-                <div class="col">
-                    <button class="button button-balanced icon-left ion-play" id="start">Start</button>
-                    <button class="button button-assertive icon-left ion-stop" id="stop">Stop</button>
-                </div>
+            <div class="col">
+                <h3>Remote stream</h3>
+                <video id="videoOutput" autoplay width="480" height="360" poster="img/kurento-mirrored.png"></video>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="button button-balanced icon-left ion-play" id="start">Start</button>
+                <button class="button button-assertive icon-left ion-stop" id="stop">Stop</button>
             </div>
         </div>
 </ion-content>

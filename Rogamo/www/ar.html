@@ -1,16 +1,17 @@
 ﻿<ion-view title="Augmented Reality">
     <ion-content padding="true" scroll="false">
-        <h2>Augmented Reality</h2>
-        <p>Here comes the AR exeample...</p>
         <div class="row">
             <div class="col">
-                <video width="400" height="300" autoplay="false" id="video" style="float: left;"></video>
+                <video width="400" height="300" id="video" poster="img/webrtc-mirrored.png" ></video>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
+        <div class="row row-center">
+            <div class="col col-25">
                 <button class="button button-balanced icon-left ion-play" id="startVideo">Start</button>
                 <button class="button button-assertive icon-left ion-stop" id="stopVideo">Stop</button>
+            </div>
+            <div class="col">
+                <p>[NOT YET IMPLEMENTED]</p>
             </div>
         </div>
         <img id="image" style="display: none;" />

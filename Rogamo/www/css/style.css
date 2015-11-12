@@ -1,94 +1,105 @@
 /* Empty. Add your own CSS if you like */
-    video { 
-        width: 480px;
-        height: 360px;
-    }
+ion-content.has-header {
+	margin-top: -44px;
+}
+
+video {
+	width: 480px;
+	height: 360px;
+    transform: scale(-1, 1);            /*For Firefox (& IE) */
+    -webkit-transform: scale(-1, 1);     /*for Chrome & Opera (& Safari) */
+}
 
 .kickstand-controls,
-.nav-controls
-{
-    float: left;
+.nav-controls {
+	float: left;
 }
 
 .kickstand-controls,
 .pole-controls,
 .kickstand-controls .button,
-.pole-controls .button
-{
-    width: 200px;
+.pole-controls .button {
+	width: 200px;
 }
 
-.pole-controls
-{
-    float: right;
+.pole-controls {
+	float: right;
 }
 
-.nav-controls
-{
-    /*border: 1px dotted #b2b2b2;*/
-   /*padding: 10px;*/
-    margin-left: 70px;
+.nav-controls {
+	/*border: 1px dotted #b2b2b2;*/
+	/*padding: 10px;*/
+	margin-left: 70px;
 }
- 
+
 .kickstand-controls .button,
 .nav-controls .button,
-.pole-controls .button
-{
-    margin: 4px 2px;
+.pole-controls .button {
+	margin: 4px 2px;
 }
 
-.nav-controls .button
-{
-    width: 150px;
+.nav-controls .button {
+	width: 150px;
 }
-
-/*.nav-controls .button.button-block
-{
-    float: left;
-}*/
 
 .nav-controls .button:first-child,
-.nav-controls .button:last-child
-{
-    display: block;
-    margin-left: 160px;
+.nav-controls .button:last-child {
+	display: block;
+	margin-left: 160px;
 }
 
+label#inputDimensions,
+label#outputDimensions {
+	color: rgb(239, 239, 239);
+}
+
+
 @media screen and (orientation:portrait) {
-
-    .nav-controls
-    {
-        margin-left: 25px;
-    }
- 
-    .kickstand-controls,
-    .pole-controls,
-    .kickstand-controls .button,
-    .pole-controls .button
-    {
-        width: 190px;
+    .kickstand-controls {
+	    float: right;
     }
 
-    .nav-controls .button
-    {
-        width: 100px;
+    .nav-controls {
+	    float: none;
     }
 
-    .nav-controls .button:first-child,
-    .nav-controls .button:last-child
-    {
-        margin-left: 110px;
-    }
+	.nav-controls {
+		margin-left: 25px;
+	}
 
-    ion-nav-view[name="kurento"] .row:first-child .col:first-child,
-    ion-nav-view[name="kurentopointer"] .row:first-child .col:first-child { 
-        display: none;
-    }
+	/*.kickstand-controls,
+	.pole-controls,
+	.kickstand-controls .button,
+	.pole-controls .button {
+		width: 190px;
+	}
 
-    ion-nav-view[name="kurento"] #videoOutput,
-    ion-nav-view[name="kurentopointer"] #videoOutput { 
-        width: 480px;
-        height: 640px;
-    }
+	.nav-controls .button {
+		width: 100px;
+	}*/
 
+	/*.nav-controls .button:first-child,
+	.nav-controls .button:last-child {
+		margin-left: 110px;
+	}*/
+
+	ion-nav-view[name="kurento"] .row:first-child .col:first-child,
+	ion-nav-view[name="kurentopointer"] .row:first-child .col:first-child,
+	ion-nav-view[name="kurento"] h3,
+	ion-nav-view[name="kurentopointer"] h3,
+	#triggerWindowIn0,
+	#triggerWindowIn1 {
+		display: none;
+	}
+
+	ion-nav-view[name="kurento"] #videoOutput,
+	ion-nav-view[name="kurentopointer"] #videoOutput,
+	ion-nav-view[name="ar"] #video {
+		width: 600px;
+		height: 800px;
+	}
+
+	label#inputDimensions {
+		color: rgb(252, 252, 252);
+	}
 }
