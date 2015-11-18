@@ -16,7 +16,8 @@ var
 	RUNPATH_SEARCH_PATHS_XCODE = '"' + RUNPATH_SEARCH_PATHS + '"',
 	ENABLE_BITCODE = 'NO',
 	ENABLE_BITCODE_XCODE = '"' + ENABLE_BITCODE + '"',
-	BRIDGING_HEADER_END = '/Plugins/cordova-plugin-iosrtc/cordova-plugin-iosrtc-Bridging-Header.h',
+	//BRIDGING_HEADER_END = '/Plugins/cordova-plugin-iosrtc/cordova-plugin-iosrtc-Bridging-Header.h',
+    BRIDGING_HEADER_END = '/plugins/cordova-plugin-doublerobotics/doubleroboticsplugin-bridging-header.h',
 	COMMENT_KEY = /_comment$/;
 
 
